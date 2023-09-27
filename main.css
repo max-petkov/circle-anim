@@ -1,0 +1,73 @@
+#loom-companion-mv3 {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 32px 20px;
+}
+
+.container {
+    max-width: 936px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* SVG & Shapes */
+.circles {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    overflow: visible;
+    margin: 0 auto;
+}
+
+.shapes [data-shape] {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+[data-shape='person'] {
+    width: 56px;
+    height: auto;
+}
+
+@media only screen and (max-width: 1650px) {
+    .circles {
+        max-width: 650px;
+    }
+
+    [data-shape='person'] {
+        width: 48px;
+    }
+
+    [data-shape='svg'] {
+        width: 24px;
+        height: auto;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .circles {
+        max-width: 650px;
+    }
+
+    [data-shape='person'] {
+        width: 24px;
+    }
+
+    [data-shape='svg'] {
+        width: 16px;
+        height: auto;
+    }
+}
