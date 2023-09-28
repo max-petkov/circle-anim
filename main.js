@@ -26,9 +26,10 @@ function showCircles() {
 function attachShapes() {
     const circleBig = document.querySelector(".circles .big");
     const shapes = document.querySelectorAll(".shapes img");
+    const duration = 180;
     const tl = gsap.timeline({
         defaults: {
-            duration: 180, 
+            duration: duration, 
             repeat: -1,
             ease: Power0.easeNone,
         }
@@ -41,7 +42,7 @@ function attachShapes() {
             alignOrigin: [0.5, 0.5],
             autoRotate: function(i, el) {
                 if(el.getAttribute("data-shape") === "person") return false;
-                else return true;
+                // else return true;
             },
             start: function(i) {
                 if(!i) return 0.6;
@@ -80,14 +81,22 @@ function attachShapes() {
             stagger: 0.05
         })
         .fromTo([shapes[2], shapes[3], shapes[4]], {
+            rotate: 180,
             scale: 0, 
             autoAlpha: 0
         }, {
+            rotate: 0,
             autoAlpha: 1,
             scale: 1, 
-            duration: 0.6,
-            ease: Back.easeInOut.config(1.7),
+            duration:  0.7,
+            ease: Back.easeInOut.config(0.6),
             stagger: 0.05
         }, 0)
+        .to([shapes[2], shapes[3], shapes[4]], {
+            rotate: 360,
+            repeat: -1,
+            duration: duration / 4,
+            ease: Power0.easeNone
+        }, "<90%")
     }
 }
